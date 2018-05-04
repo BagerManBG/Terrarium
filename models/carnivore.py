@@ -5,3 +5,5 @@ class Carnivore(Creature):
 		super().__init__(id, x, y)
 		self.cr_type = 'Carnivore'
 		
+	def feed(self, terrain, current_cell_id):
+		pass

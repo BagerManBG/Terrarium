@@ -14,11 +14,16 @@ class Terrain:
 
 		self.initialize_field()
 
-	def tick():
-		pass
+	def tick(self):
+		creatures = []
+		for i in range(0, len(self.cells)):
+			creatures += self.cells[i].creatures
+
+		for i in range(0, len(creatures)):
+			creatures[i].move(self)
 
 	def status(self):
-		print('\n')
+		print('\n', '------------------------------------------------------', '\n')
 		for i in range(0, self.size_x * self.size_y):
 			print('Cell #%(n)d (%(t)s) at (%(x)dx%(y)d)' %{
 				'n': i,
@@ -31,6 +36,6 @@ class Terrain:
 		
 	def initialize_field(self):
 		print('\n')
-		for i in range(0, self.size_y):
-			for j in range(0, self.size_x):
+		for i in range(0, self.size_x):
+			for j in range(0, self.size_y):
 				self.cells.append(Cell(i, j))

@@ -25,10 +25,12 @@ class Cell():
 			print('No creatures in this cell')
 		else:
 			for i in range(0, num_creatures):
-				print('A %(age)s-year-old %(type)s (#%(n)d)' %{
+				print('A %(age)s-year-old %(type)s (#%(n)d) -> Hunger: %(h)s, Alive: %(stat)s' %{
 					'age': self.creatures[i].age,
 					'type': self.creatures[i].cr_type,
-					'n': self.creatures[i].id
+					'n': self.creatures[i].id,
+					'h': str(self.creatures[i].hunger) + '%',
+					'stat': str(self.creatures[i].alive)
 				})
 
 	def count_alive_creatures(self):
